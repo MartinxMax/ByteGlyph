@@ -10,13 +10,13 @@ Pure static HTML webpage for converting strings to ASCII art
 
 `$ python3 -m http.server 80`
 
-![alt text](image.png)
+![alt text](./pic/image.png)
 
 http://127.0.0.1
 
-![alt text](image-1.png)
+![alt text](./pic/image-1.png)
 
-![alt text](image-2.png)
+![alt text](./pic/image-2.png)
 
 
 ```
