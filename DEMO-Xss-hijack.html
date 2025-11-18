@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>XSS Demo</h2>
+
+<div id="msgs"></div>
+
+<form id="f">
+  <input id="txt">
+  <button>Post</button>
+</form>
+
+<script>
+document.getElementById("f").onsubmit = function(e) {
+    e.preventDefault();
+    const raw = document.getElementById("txt").value;
+    const temp = document.createElement("div");
+    temp.innerHTML = raw;
+    temp.querySelectorAll("script").forEach(oldScript => {
+        const s = document.createElement("script");
+        if (oldScript.src) s.src = oldScript.src;
+        else s.innerHTML = oldScript.innerHTML;
+        document.body.appendChild(s);
+    });
+    document.getElementById("msgs").appendChild(temp);
+};
+</script>
+
+</body>
+</html>
